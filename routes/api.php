@@ -24,15 +24,22 @@ use Illuminate\Database\Query\JoinClause;
 //auth
 Route::post('/social',[AuthController::class,'social']);
 
+
+Route::middleware('auth:sanctum')->controller(AuthController::class)->group(function (){
+    Route::get('/user', 'user');
+    Route::post('/verify-otp', 'verifyOTP');
+    Route::post('/resend-otp', 'resendOTP');
+    Route::post('/logout', 'logout');
+});
+
+
 Route::middleware(['auth:sanctum','verified'])->group(function(){
     //  user
      Route::controller(AuthController::class)->group(function () {
-        Route::get('/user', 'user');
+        
         Route::post('/change-profile', 'profileUpload');
         Route::post('/update-password', 'updatePassword');
-        Route::post('/verify-otp', 'verifyOTP');
-        Route::post('/resend-otp', 'resendOTP');
-        Route::post('/logout', 'logout');
+        
     });
     // address
     Route::controller(AddressController::class)->group(function () {

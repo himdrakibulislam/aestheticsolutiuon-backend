@@ -106,6 +106,11 @@ class CheckoutController extends Controller
         //     OrderMail::dispatch($data);
         //     // Mail::to($admin->email)->send(new AllMail($data));
         // }
+
+        // $admins = Admin::all();
+        // foreach ($admins as $admin) {
+        //    $admin->notify(new OrderNotify($order->id));
+        // }
         return response()->json([
             'status' => 200,
             'message' =>  'Order confirmed'
