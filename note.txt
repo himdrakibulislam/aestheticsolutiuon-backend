@@ -1,0 +1,3 @@
+migrate specific table 
+php artisan migrate:refresh --path=/database/migrations/fileName.php
+
