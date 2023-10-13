@@ -2,6 +2,7 @@
 var loadFile = function(event) {
 	var previewImage = document.getElementById('preview');
 	previewImage.src = URL.createObjectURL(event.target.files[0]);
+  previewImage.width = "150" ;
 };
 //preview multiple image
 var loadFiles = function(event) {

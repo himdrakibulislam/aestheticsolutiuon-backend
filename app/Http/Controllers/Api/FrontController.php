@@ -3,55 +3,76 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Slider;
+use App\Models\Blog;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
-    public function allProducts(){
-    $products = Product::where('status','0')->get();
-    return response()->json([
-        'status' => 200,
-        'products' => $products
-    ]);
-    }
-    public function products(){
-    $products = Product::where('status','0')->paginate(10);
-    return response()->json([
-        'status' => 200,
-        'products' => $products
-    ]);
-    }
-    public function categories(){
-        $categories = Category::where('status','0')
-        ->get();
-    
-        // $categories = DB::table('products')
-        // ->join('categories', 'categories.id', '=', 'products.category_id')
-        // ->select('categories.*','products.name')
-        // ->get();
+    public function get_projects()
+    {
+        $projets = Project::all();
         return response()->json([
-            'status' => 200,
-            'categories' => $categories
-        ]);
+            'data' => $projets
+        ], 200);
     }
-    public function sliders(){
-        $sliders = Slider::all();
+    public function find_project($slug)
+    {
+        $projet = Project::where('slug', $slug)->first();
+        if (!$projet) {
+            return response()->json(['data' => 'Project not found', 404]);
+        }
         return response()->json([
-            'status' => 200,
-            'sliders'=> $sliders
-        ]);
+            'data' => $projet
+        ], 200);
+    }
+    // team
+    public function get_team()
+    {
+        $team = DB::table('teams')->get();
+        return response()->json([
+            'data' => $team
+        ], 200);
+    }
+    public function find_team($id)
+    {
+        $team = DB::table('teams')
+            ->where('id', $id)
+            ->first();
+        if (!$team) {
+            return response()->json(['data' => 'Team Member not found', 404]);
+        }
+        return response()->json([
+            'data' => $team
+        ], 200);
+    }
+    // blog
+    public function get_blog()
+    {
+        $blog = Blog::all();
+        return response()->json([
+            'data' => $blog 
+        ], 200);
+    }
+    public function find_blog($slug)
+    {
+        $blog = Blog::where('slug', $slug)
+            ->first();
+        if (!$blog) {
+            return response()->json(['data' => 'Blog not found', 404]);
+        }
+        return response()->json([
+            'data' => $blog
+        ], 200);
     }
 
-    public function shopInformation(){
+    public function shopInformation()
+    {
         $shopInfo = DB::table('shop_information')->first();
         return response()->json([
             'status' => 200,
-            'shopInfo'=> $shopInfo
+            'shopInfo' => $shopInfo
         ]);
     }
-
 }

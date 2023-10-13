@@ -21,8 +21,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'verification_code',
-        'otp_expiry',
         'photoURL',
         'status'
         ];
@@ -36,13 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
     ];
-    protected $with =['address','orders'];
-    public function address(){
-        return $this->hasMany(Address::class,'user_id','id');
-    }
-    public function orders(){
-        return $this->hasMany(Order::class,'user_id','id');
-    }
+    
     /**
      * The attributes that should be cast.
      *

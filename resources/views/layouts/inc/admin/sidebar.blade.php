@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{asset('admin/dashboard')}}" class="brand-link">
       <img src="{{asset('assets/img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Ekantomart</span>
+      <span class="brand-text font-weight-light">Interior</span>
     </a>
 
     <!-- Sidebar -->
@@ -40,40 +40,40 @@
                
               
               <li class="nav-item">
-                <a href="{{asset('admin/users')}}" class="nav-link {{request()->is('admin/users') ? 'active' : ''}}">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Users</p>
+                <a href="{{asset('admin/clients')}}" class="nav-link {{request()->is('admin/clients') ? 'active' : ''}}">
+                  <i class="nav-icon far fa-id-card"></i>
+                  <p>Clients</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{asset('admin/social/users')}}" class="nav-link {{request()->is('admin/social/users') ? 'active' : ''}}">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Social Users</p>
+                <a href="{{asset('admin/projects')}}" class="nav-link {{request()->is('admin/projects') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-project-diagram"></i>
+                  <p>projects</p>
                 </a>
               </li>
               
 
               <li class="nav-item">
-                <a href="{{asset('admin/sliders')}}" class="nav-link {{request()->is('admin/sliders') ? 'active' : ''}}">
-                  <i class="fas fa-sliders-h"></i>
-                  <p>Sliders</p>
+                <a href="{{asset('admin/team')}}" class="nav-link {{request()->is('admin/team') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-users"></i><i class=""></i>
+                  <p>Team</p>
                 </a>
               </li>
 
 
               <li class="nav-item">
-                <a href="{{asset('admin/media')}}" class="nav-link {{request()->is('admin/media') ? 'active' : ''}}">
-                  <i class="fas fa-photo-video"></i>
-                  <p>Media</p>
+                <a href="{{asset('admin/blogs')}}" class="nav-link {{request()->is('admin/blogs') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-blog"></i>
+                  <p>Blog</p>
                 </a>
               </li>
 
 
               <li class="nav-item">
                 <a href="{{asset('admin/orders')}}" class="nav-link {{request()->is('admin/orders') ? 'active' : ''}}">
-                  <i class="fas fa-cart-plus"></i>
-                  <p>Orders</p>
+                  <i class="nav-icon fas fa-sliders-h"></i>
+                  <p>Slides</p>
                 </a>
               </li>
 
@@ -83,84 +83,52 @@
               <i class="fa fa-list-alt" aria-hidden="true"></i>
               <p>
                 Categories
-                <i class="fas fa-angle-left right"></i>
+                <i class="nav-con fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{url('admin/categories')}}" class="nav-link {{request()->is('admin/categories') ? 'active':''}}">
-                  <i class="fa fa-list-alt" aria-hidden="true"></i>
+                  <i class="nav-icon fa fa-list-alt" aria-hidden="true"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('admin/add-category')}}" class="nav-link {{request()->is('admin/add-category') ? 'active':''}}">
-                  <i class="fas fa-plus"></i>
+                  <i class="nav-con fas fa-plus"></i>
                   <p>Add-category</p>
                 </a>
               </li>
             </ul>
 
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fas fa-business-time"></i>
-              <p>
-                Brands
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('admin/brands')}}" class="nav-link {{request()->is('admin/brands') ? 'active':''}}">
-                  <i class="fas fa-business-time"></i>
-                  <p>Brands</p>
-                </a>
-              </li>
-              
-            </ul>
+         
               
 
 
            
            
 
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fab fa-product-hunt"></i>
-                <p>
-                Products
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{url('admin/products')}}" class="nav-link">
-                    <i class="fab fa-product-hunt"></i>
-                    <p>Products</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{url('admin/add-product')}}" class="nav-link {{request()->is('admin/add-product') ? 'active': ''}}">
-                    <i class="fas fa-plus"></i>
-                    <p>Add-Product</p>
-                  </a>
-                </li>
-              </ul>
-
-
+            
             <li class="nav-item">
                 <a href="{{asset('admin/location')}}" class="nav-link {{request()->is('admin/location') ? 'active' : ''}}">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <p>Shop Info...</p>
+                  <i class="nav-icon fas fa-photo-video"></i>
+                  <p>Media </p>
+                </a>
+              </li>
+            <li class="nav-item">
+                <a href="{{asset('admin/location')}}" class="nav-link {{request()->is('admin/location') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-building"></i>
+                  <p>App</p>
+                  
                 </a>
               </li>
           
           
             <li class="nav-item">
               <a href="{{asset('admin/change-password')}}" class="nav-link {{request()->is('admin/change-password') ? 'active' : ''}}">
-                <i class="fas fa-window-maximize"></i>
-                <p>Change Admin password</p>
+                <i class="nav-icon fas fa-lock"></i>
+                <p>Security</p>
               </a>
             </li>
           <li class="nav-item">
