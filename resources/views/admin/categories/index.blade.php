@@ -32,7 +32,7 @@
                 <tr>
                   <th>Name</th>
                  
-                  <th>Image</th>
+                  
                   <th>Visibility</th>
                   <th>Action</th>
                 
@@ -43,14 +43,7 @@
                <tr>
                 <td>{{$row->name}}</td>
                
-                <td>
-                    @if ($row->image)
-                        <img 
-                        width="50px"
-                        src="{{asset($row->image)}}" alt="image">
-
-                    @endif
-                   </td>
+                
                 <td>@if ($row->status ===1)
                     <i class="fas fa-eye-slash"></i>
                     @else
@@ -92,7 +85,7 @@
                 <tfoot>
                 <tr>
                   <th>Name</th>
-                  <th>Image</th>
+                
                   <th>Visibility</th>
                  
                   <th>Action</th>

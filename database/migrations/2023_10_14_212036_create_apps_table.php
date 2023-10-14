@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('apps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('image')->nullable();
-            $table->tinyInteger('status')->default('0');
-            $table->string('slug')->nullable();
-            $table->longText('description')->nullable();
+            $table->string('name')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('mail')->nullable();
             $table->string('meta_title')->nullable();
-            $table->string('meta_keyword')->nullable();
             $table->mediumText('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('apps');
     }
 };

@@ -22,62 +22,32 @@
             <a href="{{url('admin/categories')}}" class="btn btn-outline-secondary btn-sm float-right">Back</a>
         </div>
         <div class="card-body">
+            @if ($errors->any())
+            <div class="alert alert-warning">
+              @foreach ($errors->all() as $error)
+                  <div>{{$error}}</div>
+              @endforeach
+            </div>
+        @endif
         <form action="{{url('admin/category')}}" method="POST"
         enctype="multipart/form-data">
             @csrf
             <div class="row">
 
             <!---name----->
-            <div class="col-md-6 mb-6">
+            <div class="col-md-12 mb-6">
                 <label for="name">Name</label>
                 <input type="text"
-                placeholder="Name"
+                placeholder="Category Name"
                 class="form-control @error('name') is-invalid @enderror"
                 name="name" required>
                 @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-            <!---slug----->
-            {{-- <div class="col-md-6 mb-6">
-                <label for="slug">Slug</label>
-                <input type="text"
-                placeholder="Slug"
-                class="form-control @error('slug') is-invalid @enderror"
-                name="slug" required>
-                @error('slug')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div> --}}
+            
 
-
-            <!----description----->
-            {{-- <div class="col-md-12 mb-6">
-                <label for="description">Description</label>
-                <textarea name="description"
-                class="form-control @error('description') is-invalid @enderror"
-                placeholder="Description" cols="15" rows="5" 
-                required 
-                ></textarea>
-                @error('description')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-                
-            </div> --}}
-
-
-            <!----image----->
-            <div class="col-md-6 mb-6">
-                <label for="image">Image</label>
-                <input type="file"
-                name="image"
-                class="form-control @error('image') is-invalid @enderror"
-                onchange="loadFile(event)"
-                required>
-                @error('image')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div>
+          
             
             <!----status----->
             <div class="col-md-6 mb-6 mt-3">

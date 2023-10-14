@@ -6,10 +6,8 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\LocationController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +26,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index');
         Route::get('/media', 'media');
+
         Route::get('/optimize-crear', 'optimizeClear')->name('optimize.clear');
     });
 
@@ -42,20 +41,6 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::post('/dashboard/admin/change-password', 'changePassword');
         Route::delete('/dashboard/remove-admin/{id}', 'removeAdmin');
     });
-
-    // slider 
-    Route::controller(SliderController::class)->group(function () {
-        Route::get('sliders', 'index');
-
-        Route::get('add-slider', 'add');
-        Route::post('store-slider', 'store');
-
-        Route::get('edit-slider/{id}', 'edit');
-        Route::put('update-slider/{id}', 'update');
-
-        Route::delete('delete-slider/{id}', 'desctroy');
-    });
-
     //category 
     Route::controller(CategoryController::class)->group(function () {
         Route::get('categories', 'index');
@@ -111,11 +96,10 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
 
     // shop info..... 
-    Route::controller(LocationController::class)->group(function () {
-        Route::get('location', 'index');
-        Route::post('store-shop-info', 'store');
-        Route::get('address-edit/{id}', 'edit');
-        Route::put('update-shop-info/{id}', 'update');
+    Route::controller(AppController::class)->group(function () {
+        Route::get('app', 'index');
+        Route::post('store-app-info', 'store');
+        Route::put('update-app-info/{id}', 'update');
     });
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('admin.logout');

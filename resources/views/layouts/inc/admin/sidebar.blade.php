@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{asset('admin/dashboard')}}" class="brand-link">
       <img src="{{asset('assets/img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Interior</span>
+      <span class="brand-text font-weight-light">{{env('APP_NAME')}}</span>
     </a>
 
     <!-- Sidebar -->
@@ -70,12 +70,7 @@
               </li>
 
 
-              <li class="nav-item">
-                <a href="{{asset('admin/orders')}}" class="nav-link {{request()->is('admin/orders') ? 'active' : ''}}">
-                  <i class="nav-icon fas fa-sliders-h"></i>
-                  <p>Slides</p>
-                </a>
-              </li>
+             
 
           
           <li class="nav-item">
@@ -111,13 +106,13 @@
 
             
             <li class="nav-item">
-                <a href="{{asset('admin/location')}}" class="nav-link {{request()->is('admin/location') ? 'active' : ''}}">
+                <a href="{{asset('admin/media')}}" class="nav-link {{request()->is('admin/media') ? 'active' : ''}}">
                   <i class="nav-icon fas fa-photo-video"></i>
                   <p>Media </p>
                 </a>
               </li>
             <li class="nav-item">
-                <a href="{{asset('admin/location')}}" class="nav-link {{request()->is('admin/location') ? 'active' : ''}}">
+                <a href="{{asset('admin/app')}}" class="nav-link {{request()->is('admin/app') ? 'active' : ''}}">
                   <i class="nav-icon fas fa-building"></i>
                   <p>App</p>
                   

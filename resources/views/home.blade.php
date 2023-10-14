@@ -7,7 +7,7 @@
     <!-- Favicons -->
   <link href="{{asset('assets/img/logo.png')}}" rel="icon">
   <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
-    <title>Ekantomart.com</title>
+    <title>{{env('APP_NAME')}}</title>
     <style>
         body  {
        background-image: url("assets/img/home-bg.jpg");
@@ -24,7 +24,7 @@
 
 .typing-demo {
     color: aliceblue;
-  width: 27ch;
+  width: 30ch;
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -44,6 +44,11 @@
     border-color: transparent
   }
 }
+@media only screen and (max-width: 600px) {
+  .typing-demo{
+    font-size: 1em;
+  }
+}
 
      </style>
     
@@ -51,7 +56,7 @@
 <body>
     <div class="wrapper">
         <div class="typing-demo">
-          Welcome to Ekantomart.com.
+          Welcome to {{env('APP_NAME')}}
         </div>
     </div>
 </body>

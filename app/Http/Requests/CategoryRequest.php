@@ -26,10 +26,10 @@ class CategoryRequest extends FormRequest
                 'required',
                 'string'
             ],
-             'image' =>[
-                'required',
-                'mimes:jpg,jpeg,png',
-            ],
+            //  'image' =>[
+            //     'required',
+            //     'mimes:jpg,jpeg,png',
+            // ],
 
             // 'slug' =>[
             //     'required',

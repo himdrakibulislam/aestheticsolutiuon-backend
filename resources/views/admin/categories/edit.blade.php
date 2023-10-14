@@ -26,7 +26,7 @@
             <div class="row">
 
             <!---name----->
-            <div class="col-md-6 mb-6">
+            <div class="col-md-12 mb-6">
                 <label for="name">Name</label>
                 <input type="text"
                 value="{{$category->name}}"
@@ -69,17 +69,7 @@
 
 
             <!----image----->
-            <div class="col-md-6 mb-6">
-                <label for="image">Image</label>
-                <input type="file"
-                name="image"
-                class="form-control @error('image') is-invalid @enderror"
-                onchange="loadFile(event)"
-                >
-                @error('image')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div>
+            
             
             <!----status----->
             <div class="col-md-6 mb-6 mt-3">
