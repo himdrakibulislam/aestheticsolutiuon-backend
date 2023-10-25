@@ -19,8 +19,8 @@ class Category extends Model
             'meta_description',
             'status',
     ];
-    // protected $with = ['products'];
-    public function products(){
-        return $this->hasMany(Product::class,'category_id','id');
+    protected $with = ['posts'];
+    public function posts(){
+        return $this->hasMany(Post::class,'category_id','id');
     }
 }

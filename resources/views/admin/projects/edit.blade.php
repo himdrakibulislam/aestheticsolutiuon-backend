@@ -26,7 +26,7 @@
             <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="product-image-tab" data-toggle="tab" data-target="#product-image" type="button" role="tab" aria-controls="product-image" aria-selected="false">Product Image</button>
+            <button class="nav-link" id="product-image-tab" data-toggle="tab" data-target="#product-image" type="button" role="tab" aria-controls="product-image" aria-selected="false">Project Images</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="seo-tags-tab" data-toggle="tab" data-target="#seo-tags" type="button" role="tab" aria-controls="seo-tags" aria-selected="false">SEO Tags</button>
@@ -109,6 +109,12 @@
               required>
               {{$project->description}}
             </textarea>
+            </div>
+            <div>
+              <textarea name="youtube" 
+              class="form-control mt-2"
+              placeholder="Youtube Code"
+              id="" cols="10" rows="5">{{$project->youtube}}</textarea>
             </div>
           </div>
           @error('description')

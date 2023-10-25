@@ -16,6 +16,15 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+             <div class="d-flex justify-content-between">
+
+              <h5 class="my-2"> Created At : <b>{{ date('H : i A d M Y ', strtotime($client->created_at));}}</b></h5>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{$client->email}}&su=Project contact&body=Write something"
+                target="_blank"
+                >
+                <i class="fas fa-mail-bulk"></i></a>
+             </div>
+
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -33,7 +42,7 @@
                 <tr>
                   <th>Budget</th>
                   <th><span class="text-info">
-                    BDT  {{$client->budget}} </span></th>            
+                    BDT  {{$client->budget}} K </span></th>            
                 </tr>
                 <tr>
                   <th>Estimated time</th>

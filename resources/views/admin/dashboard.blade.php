@@ -31,7 +31,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>50</h3>
+                <h3>{{$projects}}</h3>
                 <p>Projects</p>
               </div>
               <div class="icon">
@@ -47,7 +47,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>50</h3> 
+                <h3>{{$categories}}</h3> 
 
                 <p>Categories</p>
               </div>
@@ -63,14 +63,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>50</h3>
+                <h3>{{$clients}}</h3>
 
-                <p>Orders</p>
+                <p>Clients</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{url('admin/orders')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{url('admin/clients')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>

@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('sector');
             $table->longText('description');
             $table->string('slug')->nullable();
+            $table->mediumText('youtube')->nullable();
         
             $table->string('meta_title')->nullable();
             $table->string('meta_keyword')->nullable();
-            $table->string('meta_description')->nullable();
+            $table->mediumText('meta_description')->nullable();
 
             $table->timestamps();
         });

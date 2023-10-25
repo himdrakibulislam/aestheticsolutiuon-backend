@@ -369,13 +369,13 @@
             <table border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td class="content-block">
-                  <span class="apple-link">ekantomart.com | e-commerce </span>
+                  <span class="apple-link">{{env('APP_NAME')}} </span>
                   
                 </td>
               </tr>
               <tr>
                 <td class="content-block powered-by">
-                  Powered by <a target="_blank" href="https://ekantomart.com/">eknatomart.com</a>.
+                  Powered by <a target="_blank" href="{{env('FRONTEND_URL')}}">{{env('APP_NAME')}}</a>.
                 </td>
               </tr>
             </table>

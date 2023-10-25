@@ -1,5 +1,6 @@
-migrate specific table 
-php artisan migrate:refresh --path=/database/migrations/fileName.php
+Elevate Your Space with Timeless Interior Design Solutions and Creativity.
 
+Transforming Spaces, Inspiring Lives: Interior Design Excellence.
 
+Crafting Aesthetic Living: Where Dreams Meet Design Realities.
 

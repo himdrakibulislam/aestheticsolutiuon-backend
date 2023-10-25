@@ -9,7 +9,7 @@
  
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- Favicons -->
-  <link href="{{asset('assets/img/logo.png')}}" rel="icon">
+  <link href="{{asset('assets/img/favicon.ico')}}" rel="icon">
   <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Font: Source Sans Pro -->

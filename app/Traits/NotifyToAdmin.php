@@ -5,12 +5,13 @@ use App\Models\Admin;
 
 trait NotifyToAdmin
 {
-    public function sendNotification($type,$message)
+    public function sendNotification($type,$message,$data=[])
     {
         $admins = Admin::all();
         foreach ($admins as $admin) {
-            $admin->notify(new AdminNotification($type,$message));
+            $admin->notify(new AdminNotification($type,$message,$data));
         }
+     
     }
 }
 ?>

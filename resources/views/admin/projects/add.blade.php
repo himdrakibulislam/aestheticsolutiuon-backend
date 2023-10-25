@@ -109,12 +109,21 @@
               required>
             </textarea>
             </div>
+
+            <div>
+              <textarea name="youtube" 
+              class="form-control mt-2"
+              placeholder="Youtube Code"
+              id="" cols="10" rows="5"></textarea>
+            </div>
           </div>
           @error('description')
           <div class="alert alert-danger">
             {{ $message }}
           </div>
          @enderror
+    
+        
          {{-- seo section --}}
           <div class="tab-pane border p-3 fade" id="seo-tags" role="tabpanel" aria-labelledby="seo-tags-tab">
                {{-- meta title --}}

@@ -21,6 +21,7 @@ class AdminController extends Controller
             'name' => 'required',
             'email' => 'required|unique:admins'
         ]);
+        $app = env('APP_NAME');
         $password = Str::random(8);
         $login_url = url("/")."/admin/login";
 
@@ -30,7 +31,7 @@ class AdminController extends Controller
             Congratulation <b>{$request->name}</b>,
             <p class='text-justify'>
 
-            You have been selected as the admin of <b>ekantomart.com </b> . Make sure your access of <b>ekantomart.com</b> admin panel click the below button.Log in with the below credentials.
+            You have been selected as the admin of <b>{$app}</b> . Make sure your access of <b>{$app}</b> admin panel click the below button.Log in with the below credentials.
             <p/>
 
             <div class='mb-4'>
@@ -43,6 +44,11 @@ class AdminController extends Controller
 
             <a href='{$login_url}' 
             class='btn btn-success' target='_blank'>LOGIN TO ADMIN PANEL<a/>
+            
+            <div>
+            <b>Note :</b>
+            Please change the password after successfully logging in 
+            </div>
         </div>";
 
         $data['content'] = $content;

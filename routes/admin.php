@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AppController;
+use App\Http\Controllers\Admin\MaterialController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TeamController;
 use Illuminate\Http\Request;
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LoginController::class)
     ->prefix('admin')->group(function () {
         Route::get('/login', 'create');
-        Route::post('/login', 'authenticate')->name('admin.login');
+        Route::post('/login', 'authenticate')->name('admin.login')->middleware(['throttle:4,60']);
     });
 
 
@@ -26,6 +28,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index');
         Route::get('/media', 'media');
+
+        Route::get('/notifications', 'see_notification');
+        Route::get('/clear-notification', 'clearAllNotification')->name('clear.notification');
 
         Route::get('/optimize-crear', 'optimizeClear')->name('optimize.clear');
     });
@@ -51,7 +56,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::delete('category/delete/{id}', 'deleteCategory');
     });
 
-    // product
+    // project
     Route::controller(ProjectController::class)->group(function () {
         Route::get('projects', 'index');
         Route::get('add-project', 'add');
@@ -71,13 +76,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('team/view/{id}', 'detail');
         Route::put('team/update/{id}', 'update');
         Route::delete('team/{id}/delete', 'removeMember');
-        
     });
-     // blog
-     Route::controller(BlogController::class)->group(function () {
+    // blog
+    Route::controller(BlogController::class)->group(function () {
         Route::get('/blogs', 'index');
         Route::get('/create-post', 'create');
-        Route::post('/store-post', 'store')->name('store.post');
+        Route::post('/store-blog', 'store')->name('store.post');
         Route::get('/post/{id}/edit', 'edit');
         Route::put('/post/update/{id}', 'update');
         Route::get('/post/{id}', 'watchBlog');
@@ -85,12 +89,32 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::delete('/post/delete/{id}', 'deletePost');
     });
     // clients
-     Route::controller(ContractController::class)->group(function () {
+    Route::controller(ContractController::class)->group(function () {
         Route::get('/clients', 'index');
-    
+
         Route::get('/client/{id}', 'contract');
 
         Route::delete('/client/delete/{id}', 'delete_client');
+    });
+
+    // material
+    Route::controller(MaterialController::class)->group(function () {
+        Route::get('/materials', 'index');
+        Route::get('/add-material', 'add');
+        Route::post('/store-material', 'store');
+        Route::get('/material/{id}/edit', 'edit');
+        Route::patch('/update-material/{id}', 'update');
+        Route::delete('/material/{id}/delete', 'delete');
+    });
+
+    // post
+    Route::controller(PostController::class)->group(function () {
+        Route::get('/posts', 'index');
+        Route::get('/add-post', 'add');
+        Route::post('/store-post', 'store');
+        Route::get('/post/edit/{id}', 'edit');
+        Route::patch('/update-post/{id}', 'update');
+        Route::delete('/post/{id}/delete', 'delete');
     });
 
 

@@ -23,13 +23,15 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Admin Login </h5>
   
                     <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example17">Email address</label>
                       <input type="email" id="form2Example17" 
                       name="email"
+                      placeholder="E-mail"
                       class="form-control form-control-lg @error('email') is-invalid @enderror" 
                       value="{{ old('email') }}" 
                       required
                       />
-                      <label class="form-label" for="form2Example17">Email address</label>
+               
                       @error('email')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -38,10 +40,13 @@
                     </div>
   
                     <div class="form-outline mb-4">
-                      <input type="password" name="password" id="form2Example27" class="form-control form-control-lg @error('password') is-invalid @enderror"
+                        <label class="form-label" for="form2Example27">Password</label>
+                      <input type="password" name="password" id="form2Example27" 
+                      placeholder="Password"
+                      class="form-control form-control-lg @error('password') is-invalid @enderror"
                       value="{{ old('password') }}"
                       required />
-                      <label class="form-label" for="form2Example27">Password</label>
+                      
 
                       @error('password')
                       <span class="invalid-feedback" role="alert">

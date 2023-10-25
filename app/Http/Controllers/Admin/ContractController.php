@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contract;
+use App\Traits\NotifyToAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ContractController extends Controller
 {
+    use NotifyToAdmin;
     public function index()
     {
-        $clients = Contract::all();
+        $clients = Contract::orderBy('id','DESC')->get();
         return view("admin.client.index", ["clients" => $clients]);
     }
     public function contract(int $id)
@@ -35,6 +37,12 @@ class ContractController extends Controller
             ], 422);
         }
         $contract = Contract::create($request->all());
+        $this->sendNotification('contract',$request->name.'  sent a contract',[
+            'id' => $contract->id,
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+      
         return response()->json([
             'message' => 'Thank you for submitting.',
             'data' => $contract
