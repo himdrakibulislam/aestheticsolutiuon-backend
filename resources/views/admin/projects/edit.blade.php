@@ -206,7 +206,7 @@
             <div class="row">
               @foreach ($project->projectImages as $image)
               <div class="col-3">
-              <img class="w-100 rounded mx-2 cover" width="150" height="150" src="{{asset($image->image)}}" alt="Image">
+              <img class="w-100 rounded mx-2 cover"  src="{{asset($image->image)}}" alt="Image">
 
               <a  href="{{route('deleteproject.image',['id' => $image->id])}}"
                 class="w-100 mt-2 btn btn-outline-danger btn-sm"

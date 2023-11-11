@@ -29,7 +29,7 @@ class MaterialController extends Controller
         $material = new Material();
         $material->name = $request->name;
         if ($request->hasFile('image')) {
-            $material->image = $this->upload_without_modify($request->image, $uploadpath, '');
+            $material->image = $this->upload_with_modify($request->image, $uploadpath, '',1200,500);
         }
         $material->description = $request->description;
         $material->save();
@@ -52,7 +52,7 @@ class MaterialController extends Controller
 
         $material->name = $request->name;
         if ($request->hasFile('image')) {
-            $material->image = $this->upload_without_modify($request->image, $uploadpath,$material->image);
+            $material->image = $this->upload_with_modify($request->image, $uploadpath,$material->image,1200,500);
         }
         $material->description = $request->description;
         $material->update();

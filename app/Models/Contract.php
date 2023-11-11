@@ -16,6 +16,7 @@ class Contract extends Model
         'budget',
         'description',
         'es_time',
+        'ip',
     ];
 
 }

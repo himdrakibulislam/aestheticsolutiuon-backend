@@ -8,7 +8,7 @@
     <div class="content mt-3">
        <div class="row">
         @foreach ($productImages as $image)
-        <div class="col-md-3">
+        <div class="col-md-3 my-2">
             <img src="{{asset($image->image)}}" class="w-100 rounded" alt="media">
         </div>
         @endforeach

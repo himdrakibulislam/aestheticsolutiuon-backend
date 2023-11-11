@@ -50,7 +50,7 @@ class ProjectController extends Controller
             $i = 1;
             foreach ($request->file('image') as $imageFile) {
 
-                $image_path = $this->upload_without_modify($imageFile, $uploadPath, '');
+                $image_path = $this->upload_with_modify($imageFile, $uploadPath, '',1800,800);
 
                 ProjectImage::create([
                     'project_id' => $project->id,
@@ -91,7 +91,7 @@ class ProjectController extends Controller
                 $uploadPath = 'uploads/projects/';
                 $i = 1;
                 foreach ($request->file('image') as $imageFile) {
-                    $image_path = $this->upload_without_modify($imageFile, $uploadPath, '');
+                    $image_path = $this->upload_with_modify($imageFile, $uploadPath, '',1800,800);
 
                 ProjectImage::create([
                     'project_id' => $project->id,

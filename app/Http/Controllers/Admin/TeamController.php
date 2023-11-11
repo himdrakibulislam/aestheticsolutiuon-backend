@@ -31,7 +31,7 @@ class TeamController extends Controller
         $team->biodata = $request->biodata ; 
         if($request->hasFile('profile')){
             
-        $team->profile = $this->upload_without_modify($request->file('profile'),$uploadPath,''); 
+        $team->profile = $this->upload_with_modify($request->file('profile'),$uploadPath,'',200,200); 
         }
         $team->phone = $request->phone ; 
         $team->facebook = $request->facebook ; 
@@ -63,7 +63,7 @@ class TeamController extends Controller
         $team->biodata = $request->biodata ; 
         if($request->hasFile('profile')){
             
-        $team->profile = $this->upload_without_modify($request->file('profile'),$uploadPath,$team->profile); 
+        $team->profile = $this->upload_with_modify($request->file('profile'),$uploadPath,$team->profile,200,200); 
         }
         $team->phone = $request->phone ; 
         $team->facebook = $request->facebook ; 

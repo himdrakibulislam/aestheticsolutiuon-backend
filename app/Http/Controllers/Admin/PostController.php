@@ -31,7 +31,7 @@ class PostController extends Controller
         $material = new Post();
         $material->category_id = $request->category_id;
         if ($request->hasFile('image')) {
-            $material->image = $this->upload_without_modify($request->image, $uploadpath, '');
+            $material->image = $this->upload_with_modify($request->image, $uploadpath, '',1200,500);
         }
         $material->description = $request->description;
         $material->save();
@@ -53,7 +53,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->category_id = $request->category_id;
         if ($request->hasFile('image')) {
-            $post->image = $this->upload_without_modify($request->image, $uploadpath,$post->image);
+            $post->image = $this->upload_with_modify($request->image, $uploadpath,$post->image,1200,500);
         }
         $post->description = $request->description;
         $post->update();

@@ -36,7 +36,17 @@ class ContractController extends Controller
                 'errors' => $validators->messages(),
             ], 422);
         }
-        $contract = Contract::create($request->all());
+
+        $contract = Contract::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'service_type' => $request->service_type,
+            'budget' => $request->budget,
+            'description' => $request->description,
+            'es_time' => $request->es_time,
+            'ip' => $request->ip(),
+        ]);
+
         $this->sendNotification('contract',$request->name.'  sent a contract',[
             'id' => $contract->id,
             'name' => $request->name,
