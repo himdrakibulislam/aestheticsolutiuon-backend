@@ -26,10 +26,8 @@ class ProjectController extends Controller
     }
     public function store(ProjectFormRequest $request)
     {
-
-
         $validatedData  = $request->validated();
-
+        
         $project = Project::create([
             'author_id' => auth()->guard('admin')->user()->id,
             'location' =>  $validatedData['location'],
@@ -50,7 +48,7 @@ class ProjectController extends Controller
             $i = 1;
             foreach ($request->file('image') as $imageFile) {
 
-                $image_path = $this->upload_with_modify($imageFile, $uploadPath, '',1800,800);
+                $image_path = $this->upload_without_modify($imageFile, $uploadPath, '');
 
                 ProjectImage::create([
                     'project_id' => $project->id,
@@ -91,7 +89,7 @@ class ProjectController extends Controller
                 $uploadPath = 'uploads/projects/';
                 $i = 1;
                 foreach ($request->file('image') as $imageFile) {
-                    $image_path = $this->upload_with_modify($imageFile, $uploadPath, '',1800,800);
+                    $image_path = $this->upload_without_modify($imageFile, $uploadPath, '');
 
                 ProjectImage::create([
                     'project_id' => $project->id,
